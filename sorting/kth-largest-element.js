@@ -1,6 +1,6 @@
-var findKthLargest = function (nums, k) {
-  return quickSelect(nums, 0, nums.length - 1, k);
-};
+function kth_largest_in_an_array(numbers, k) {
+  return quickSelect(numbers, 0, numbers.length - 1, k);
+}
 
 function quickSelect(arr, start, end, k) {
   const pivotIndex = partition(arr, start, end);
@@ -20,12 +20,9 @@ function quickSelect(arr, start, end, k) {
 }
 
 function partition(arr, start, end) {
-  /**
-   * Use the last element as pivot for simplicity. Randomized pivot
-   * is a better way to avoid worst case where the the largest or the smallest
-   * element is always selected.
-   */
-  const pivot = Math.floor(Math.random() * (end - start + 1)) + start;
+  const pivotIdx = Math.floor(Math.random() * (end - start + 1)) + start;
+  const pivot = arr[pivotIdx];
+  swap(arr, end, pivotIdx);
   let i = start;
   let j = end - 1;
   // move all numbers smaller than pivot to the left and larger to the right
