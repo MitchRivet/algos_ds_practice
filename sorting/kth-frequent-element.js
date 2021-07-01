@@ -1,8 +1,3 @@
-/**
- * @param {list_int32} arr
- * @param {int32} k
- * @return {list_int32}
- */
 function find_top_k_frequent_elements(arr, k) {
   const countMap = {};
   arr.forEach((n) => {
@@ -20,7 +15,6 @@ function find_top_k_frequent_elements(arr, k) {
   };
 
   const partition = (arr, low, high) => {
-    //random pivot
     const pivotIdx = Math.floor(Math.random() * (high - low + 1)) + low;
     const pivotFreq = countMap[arr[pivotIdx]];
     swap(arr, pivotIdx, high);
@@ -38,18 +32,14 @@ function find_top_k_frequent_elements(arr, k) {
     return i;
   };
 
-  // quickselect b/c we only need to sort till we get the kth end of the arry
   const quickSelect = (arr, low, high) => {
     const pivotIdx = partition(arr, low, high);
-    // left
     if (pivotIdx > arr.length - k) {
       return quickSelect(arr, low, pivotIdx - 1);
     } else if (pivotIdx < arr.length - k) {
       return quickSelect(arr, pivotIdx + 1, high);
     }
 
-    // if the pivot is equal, we know we're done
-    // could we just pick the pivot we want at the start?
     return arr;
   };
 
@@ -61,6 +51,4 @@ function find_top_k_frequent_elements(arr, k) {
   }
 
   return result;
-
-  return [];
 }
