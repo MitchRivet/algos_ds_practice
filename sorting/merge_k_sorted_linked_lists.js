@@ -13,14 +13,6 @@ function merge_k_lists(lists) {
 }
 
 function merge_2_lists(list1, list2) {
-  if (list1 === null) {
-    return list2;
-  }
-
-  if (list2 === null) {
-    return list1;
-  }
-
   const dummy = new SinglyLinkedListNode(0);
   let last = dummy;
 
