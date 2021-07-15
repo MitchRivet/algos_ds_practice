@@ -1,4 +1,4 @@
-// LC #72
+// LC #77 Combinations
 
 var combine = function (n, k) {
   const result = [];
