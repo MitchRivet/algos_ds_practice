@@ -1,4 +1,6 @@
 /**
+ * LC #51 - N queens
+ *
  * @param {number} n
  * @return {string[][]}
  */
